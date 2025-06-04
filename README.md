@@ -27,9 +27,11 @@ This repository contains a fully self-contained, vision-based navigation and man
 6.  [💡 Troubleshooting & Tips](#6-troubleshooting--tips)
 7.  [📈 Future Improvements](#7-future-improvements)
 
+<p align="center">
+  <img src="pictures/3.jpg" width="400" alt="Kobuki Robot"/>
+</p>
 
 ---
-
 ## 1. Project Overview
 
 This repository contains a fully self-contained, vision-based navigation and manipulation system for the Kobuki robot. The Kobuki base is equipped with a Raspberry Pi 5 and a USB webcam. The goal of the system is to autonomously search for, identify, and deliver four colored cubes (red, green, blue, and yellow) to walls painted in the matching colors, within a bounded arena.
@@ -159,7 +161,9 @@ Accurate color detection is crucial. You'll need to calibrate the HSV (Hue, Satu
 1.  **Use Sample Images (Optional but Recommended):**
     The `samples/test_frames/` directory contains static images. You can use a color picker tool (e.g., in GIMP, Photoshop, or an online HSV color picker) to get an initial estimate of the HSV ranges for each color.
     Alternatively, modify one of the detection scripts (e.g., `colordetectionwhilerotatng.py`) to display trackbars for HSV values and run it on these sample images or a live camera feed.
-
+<p align="center">
+  <img src="pictures/2.jpg" width="600" alt="Kobuki Robot"/>
+</p>
 2.  **Live Calibration:**
     *   It's best to calibrate using the live camera feed in the actual operational environment.
     *   You might need to create a simple calibration script (or adapt an existing detection script) that:
