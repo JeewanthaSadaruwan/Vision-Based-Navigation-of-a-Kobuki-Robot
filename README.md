@@ -153,6 +153,9 @@ It's highly recommended to use a Python virtual environment.
     *   Connect the Kobuki's USB cable to one of the Raspberry Pi's USB ports.
     *   Connect the USB webcam to another USB port on the Raspberry Pi.
 3.  **Arena:** Set up your bounded arena with colored walls and place the colored cubes within it. Ensure good, consistent lighting.
+<p align="center">
+  <img src="pictures/1.jpg" width="500" alt="Kobuki Robot"/>
+</p>
 
 ### 4.2. Calibrating Color Thresholds
 
@@ -232,6 +235,10 @@ The core logic is organized into several Python modules located in the `finalCod
 
 *   **`colordetectionwhilerotatng.py`**: This script rotates the Kobuki in place while actively scanning the entire camera frame for a specified target color. Once the colored cube is detected (e.g., its contour is found and meets certain criteria), the robot stops rotating and returns the centroid coordinates (x, y) of the detected object in the image.
 *   **`colordetectionwhilerotatng__.py`**: A slightly different or experimental version of the above script. It might contain alternative detection strategies or parameters. Review its specific implementation to understand its differences. It can be kept for reference or removed if redundant.
+
+<p align="center">
+  <img src="pictures/4.jpg" width="400" alt="Kobuki Robot"/>
+</p>
 
 ### 5.3. `detectioninmiddle.py`
 
