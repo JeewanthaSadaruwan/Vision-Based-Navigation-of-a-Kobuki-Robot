@@ -12,6 +12,8 @@ This repository contains a fully self-contained, vision-based navigation and man
 3.  [🛠️ Installation & Dependencies](#3-installation--dependencies)
     *   [3.1. System Requirements](#31-system-requirements)
     *   [3.2. Python Environment & Packages](#32-python-environment--packages)
+    *   [3.3. Remote Access (VNC & SSH)](#33-remote-access-vnc--ssh)
+    *   
 4.  [🚀 Usage Instructions](#4-usage-instructions)
     *   [4.1. Hardware Setup](#41-hardware-setup)
     *   [4.2. Calibrating Color Thresholds](#42-calibrating-color-thresholds)
@@ -144,6 +146,43 @@ It's highly recommended to use a Python virtual environment.
 
 ---
 
+5.  **Serial Port Permissions (Important for Kobuki):**
+    The Kobuki typically connects via `/dev/ttyACM0` or similar. Your user needs permission to access it.
+    ```bash
+    sudo usermod -a -G dialout $USER
+    ```
+    You will need to **log out and log back in** (or reboot) for this change to take effect.
+    You can check the device name by connecting the Kobuki and running `dmesg | grep tty`.
+
+### 3.3. Remote Access (VNC & SSH)
+
+For headless operation and development, remote access to the Raspberry Pi is essential.
+
+*   **SSH (Secure Shell):**
+    *   Provides command-line access to the Raspberry Pi.
+    *   Essential for running scripts, editing configuration files, updating the system, and general development.
+    *   **Enabling SSH on Raspberry Pi OS:**
+        *   SSH is often enabled by default on recent Raspberry Pi OS images.
+        *   If not, run `sudo raspi-config`.
+        *   Navigate to `Interface Options` (or `Interfacing Options`).
+        *   Select `SSH` and enable it.
+        *   Alternatively, you can enable it via `sudo systemctl enable ssh && sudo systemctl start ssh`.
+    *   **Connecting via SSH:**
+        *   Find your Raspberry Pi's IP address (e.g., using `hostname -I` on the Pi, or checking your router's connected devices).
+        *   From Linux/macOS: `ssh pi@<RASPBERRY_PI_IP_ADDRESS>`
+        *   From Windows: Use an SSH client like [PuTTY](https://www.putty.org/).
+
+*   **VNC (Virtual Network Computing):**
+    *   Allows you to access the Raspberry Pi's graphical desktop remotely.
+    *   Useful for tasks like running GUI-based color calibration tools, viewing OpenCV debug windows, or general desktop interaction without a dedicated monitor.
+    *   **Enabling VNC on Raspberry Pi OS:**
+        *   Run `sudo raspi-config`.
+        *   Navigate to `Interface Options` (or `Interfacing Options`).
+        *   Select `VNC` and enable it.
+        *   Reboot if prompted. The VNC server (usually RealVNC) should start automatically.
+    *   **Connecting via VNC:**
+        *   Install a VNC Viewer on your computer (e.g., [RealVNC Viewer](https://www.realvnc.com/en/connect/download/viewer/)).
+        *   Connect to the Raspberry Pi's IP address using the VNC Viewer. You'll be prompted for the Pi's username and password.
 ## 4. 🚀 Usage Instructions
 
 ### 4.1. Hardware Setup
